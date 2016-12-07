@@ -14,10 +14,16 @@
      -->
     <script>
     window.onload = function() {
-    <!-- Deep link URL for existing users with app already installed on their device -->
-        window.location = 'gooboom://joinroom/TEST';
-    <!-- Download URL (MAT link) for new users to download the app -->
-        setTimeout("window.location = 'http://google.com;", 1000);
+       var roomName = uri.lastIndexOf('/');
+        if(roomName != "")
+        {
+             <!-- Deep link URL for existing users with app already installed on their device -->
+            window.location = 'gooboom://joinroom/' + roomName;
+            <!-- Download URL (MAT link) for new users to download the app -->
+            setTimeout("window.location = 'http://google.com;", 1000);
+        }
+   
+    
     }
     </script>
 </head>
