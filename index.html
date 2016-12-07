@@ -25,7 +25,10 @@
         if (!results[2]) return '';
         return decodeURIComponent(results[2].replace(/\+/g, " "));
     }
-        
+    function gotoStore()
+    {
+        window.location = 'http://google.com';
+    }
     window.onload = function() {
         var roomName = getParameterByName('roomName');
         if(roomName != "")
@@ -33,7 +36,7 @@
              <!-- Deep link URL for existing users with app already installed on their device -->
             window.location = 'gooboom://joinroom/' + roomName;
             <!-- Download URL (MAT link) for new users to download the app -->
-            setTimeout("window.location = 'http://google.com;", 3000);
+            setTimeout(gotoStore, 3000);
         }
    
     
