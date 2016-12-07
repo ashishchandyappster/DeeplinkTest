@@ -61,14 +61,40 @@
         var roomName = getParameterByName('roomName');
         if(roomName != "")
         {
-             <!-- Deep link URL for existing users with app already installed on their device -->
-            window.location = 'gooboom://joinroom/' + roomName;
+            <!-- Deep link URL for existing users with app already installed on their device -->
+            <!-- window.location = 'gooboom://joinroom/' + roomName; -->
             <!-- Download URL (MAT link) for new users to download the app -->
-            setTimeout(gotoStore, 10000);
+            <!-- setTimeout(gotoStore, 10000); -->
+            if(isMobile.iOS())
+            {
+                goto('gooboom://joinroom/' + roomName,'https://itunes.apple.com/in/genre/ios/id36?mt=8');            
+            }
+            else if(isMobile.Android())
+            {
+                goto('gooboom://joinroom/' + roomName,'https://play.google.com/'); 
+                <!-- window.location = 'https://play.google.com/'; -->
+            }
         }
    
     
     }
+    function goto(url, fallback) {
+    var xmlhttp=new XMLHttpRequest();
+    xmlhttp.open('GET', url, false);
+    try {
+        xmlhttp.send(null);                  // Send the request now
+    } catch (e) {
+        document.location = fallback;
+        return;
+    }
+
+    // Throw an error if the request was not 200 OK 
+    if (xmlhttp.status === 200) {
+        document.location = url;
+    } else {
+        document.location = fallback;
+    }
+}
     </script>
 </head>
 <body>
