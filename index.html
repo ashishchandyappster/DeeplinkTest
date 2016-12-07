@@ -25,8 +25,36 @@
         if (!results[2]) return '';
         return decodeURIComponent(results[2].replace(/\+/g, " "));
     }
+    var isMobile = {
+        Android: function() {
+            return navigator.userAgent.match(/Android/i);
+        },
+        BlackBerry: function() {
+            return navigator.userAgent.match(/BlackBerry/i);
+        },
+        iOS: function() {
+            return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+        },
+        Opera: function() {
+            return navigator.userAgent.match(/Opera Mini/i);
+        },
+        Windows: function() {
+            return navigator.userAgent.match(/IEMobile/i);
+        },
+        any: function() {
+            return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+        }
+    };
     function gotoStore()
     {
+        if(isMobile.iOS())
+        {
+            window.location = 'https://play.google.com/';
+        }
+        else if(isMobile.Android())
+        {
+            window.location = 'https://itunes.apple.com/in/genre/ios/id36?mt=8';
+        }
         window.location = 'http://google.com';
     }
     window.onload = function() {
