@@ -64,6 +64,7 @@
         {
             if(isMobile.Android())
             {
+                window.alert("is android");
                 $.ajax({
                     type: 'HEAD',
                     url: 'gooboom://joinroom/' + roomName,
