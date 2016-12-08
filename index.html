@@ -61,8 +61,7 @@
         if(roomName != "")
         {
              <!-- Deep link URL for existing users with app already installed on their device -->
-//             window.open = 'gooboom://joinroom/' + roomName;
-            window.open('gooboom://joinroom/' + roomName);
+            window.location = 'gooboom://joinroom/' + roomName;
             <!-- Download URL (MAT link) for new users to download the app -->
             setTimeout(gotoStore, 3000);
         }
