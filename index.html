@@ -13,6 +13,7 @@
         and app wouldn't open since it's not installed. In 1 second (1000 milliseconds) user is redirected
         to download app from app store.
      -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
     <script>
         
     function getParameterByName(name, url) {
@@ -61,10 +62,28 @@
         var roomName = getParameterByName('roomName');
         if(roomName != "")
         {
-             <!-- Deep link URL for existing users with app already installed on their device -->
-            window.location = 'gooboom://joinroom/' + roomName;
-            <!-- Download URL (MAT link) for new users to download the app -->
-            setTimeout(gotoStore, 3000);
+            if(isMobile.Android())
+            {
+                $.ajax({
+                    type: 'HEAD',
+                    url: 'gooboom://joinroom/' + roomName,
+                    async: false,
+                success: function() {
+                        window.alert("valid");
+                },
+                error: function() {
+                        window.alert("invalid");
+                }
+                });
+            }
+            else
+            {
+                 <!-- Deep link URL for existing users with app already installed on their device -->
+                window.location = 'gooboom://joinroom/' + roomName;
+                <!-- Download URL (MAT link) for new users to download the app -->
+                setTimeout(gotoStore, 3000);                
+            }
+
         }
    
     
