@@ -62,9 +62,10 @@
         var roomName = getParameterByName('roomName');
         if(roomName != "")
         {
+            window.alert("room name is not empty");
             if(isMobile.Android())
             {
-                window.alert("is android");
+
                 $.ajax({
                     type: 'HEAD',
                     url: 'gooboom://joinroom/' + roomName,
