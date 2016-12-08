@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html>
 <head>
@@ -55,68 +56,32 @@
         {
             window.location = 'https://play.google.com/';
         }
-        else    
-        {
-            window.location = 'https://play.google.com/';
-        }
-        
-
     }
     window.onload = function() {
         var roomName = getParameterByName('roomName');
         if(roomName != "")
         {
-            <!-- Deep link URL for existing users with app already installed on their device -->
+             <!-- Deep link URL for existing users with app already installed on their device -->
             window.location = 'gooboom://joinroom/' + roomName;
             <!-- Download URL (MAT link) for new users to download the app -->
-            setTimeout(gotoStore, 10000);
-            <!--
-            if(isMobile.iOS())
-            {
-                goto('gooboom://joinroom/' + roomName,'https://itunes.apple.com/in/genre/ios/id36?mt=8');            
-            }
-            else if(isMobile.Android())
-            {
-                goto('gooboom://joinroom/' + roomName,'https://play.google.com/'); 
-                <!-- window.location = 'https://play.google.com/'; -->
-            }
-            -->
+            setTimeout(gotoStore, 3000);
         }
    
     
     }
-    function goto(url, fallback) {
-    var xmlhttp=new XMLHttpRequest();
-    xmlhttp.open('GET', url, false);
-    try {
-        xmlhttp.send(null);                  // Send the request now
-    } catch (e) {
-        document.location = fallback;
-        return;
-    }
-
-    // Throw an error if the request was not 200 OK 
-    if (xmlhttp.status === 200) {
-        document.location = url;
-    } else {
-        document.location = fallback;
-    }
-}
     </script>
 </head>
 <body>
-
-    <!-- button to Download App for new app users -->
-    <!-- 
+ 
+    <!-- button to Download App for new app users
     <form action="https://play.google.com/store?hl=en" target="_blank">
         <input type="submit" value="Download" />
     </form>
     -->
-    <!-- button to Open App to specific screen for existing app users -->
-    <!--
+    <!-- button to Open App to specific screen for existing app users
     <form action="gooboom://joinroom/TEST" target="_blank">
         <input type="submit" value="Open App" />
     </form>
-    -->
+     -->
 </body>
 </html>
