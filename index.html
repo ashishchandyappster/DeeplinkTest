@@ -63,7 +63,6 @@
     }
     window.onload = function() {
         var roomName = getParameterByName('roomName');
-        window.alert("on load");
         if(roomName != "")
         {
              <!-- Deep link URL for existing users with app already installed on their device -->
@@ -75,7 +74,6 @@
     
     }
     ifvisible.on("blur", function(){
-        window.alert("on min");
         clearTimeout(storeCall);
     });
     </script>
