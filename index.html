@@ -12,6 +12,7 @@
         and app wouldn't open since it's not installed. In 1 second (1000 milliseconds) user is redirected
         to download app from app store.
      -->
+    <script src="ifvisible.min.js"></script>
     <script>
         
     function getParameterByName(name, url) {
@@ -47,14 +48,18 @@
     };
     function gotoStore()
     {
-        if(isMobile.iOS())
-        {
-            window.location = 'https://itunes.apple.com/in/genre/ios/id36?mt=8';            
+        // If page is visible right now
+        if( ifvisible.now() ){
+            if(isMobile.iOS())
+            {
+                window.location = 'https://itunes.apple.com/in/genre/ios/id36?mt=8';            
+            }
+            else if(isMobile.Android())
+            {
+                window.location.href = 'https://play.google.com/';
+            }
         }
-        else if(isMobile.Android())
-        {
-            window.location.href = 'https://play.google.com/';
-        }
+        
     }
     window.onload = function() {
         var roomName = getParameterByName('roomName');
