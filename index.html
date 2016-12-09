@@ -12,6 +12,7 @@
         and app wouldn't open since it's not installed. In 1 second (1000 milliseconds) user is redirected
         to download app from app store.
      -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="ifvisible.min.js"></script>
     <script>
     var storeCall;
@@ -84,7 +85,8 @@
     function setIframeSrc(var gotoLocation)
     {
         window.alert("setting iframe source");
-        document.getElementById('myIframe').src = gotoLocation;
+//         document.getElementById('myIframe').src = gotoLocation;
+        $('#myIframe').load(gotoLocation);
     }
     </script>
 </head>
