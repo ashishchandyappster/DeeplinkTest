@@ -85,8 +85,10 @@
     function setIframeSrc(gotoLocation)
     {
         window.alert("setting iframe source" + gotoLocation);
-//         document.getElementById('myIframe').src = gotoLocation;
-        $('#myIframe').load(gotoLocation);
+        document.getElementById('myIframe').src = gotoLocation;
+        document.getElementById(FrameID).contentDocument.location.reload(true);
+
+//         $('#myIframe').load(gotoLocation);
     }
     </script>
 </head>
