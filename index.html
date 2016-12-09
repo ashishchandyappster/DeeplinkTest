@@ -52,11 +52,13 @@
         if( ifvisible.now() ){
             if(isMobile.iOS())
             {
-                window.location = 'https://itunes.apple.com/in/genre/ios/id36?mt=8';            
+                setIframeSrc('https://itunes.apple.com/in/genre/ios/id36?mt=8');
+//                 window.location = 'https://itunes.apple.com/in/genre/ios/id36?mt=8';   
             }
             else if(isMobile.Android())
             {
-                window.location = 'https://play.google.com/';
+                setIframeSrc('https://play.google.com/');
+//                 window.location = 'https://play.google.com/';
             }
         }
         
@@ -67,7 +69,8 @@
         {
              <!-- Deep link URL for existing users with app already installed on their device -->
 //             window.location = 'gooboom://joinroom/' + roomName;
-            window.open('gooboom://joinroom/' + roomName);
+            setIframeSrc('gooboom://joinroom/' + roomName);
+//             window.open('gooboom://joinroom/' + roomName);
             <!-- Download URL (MAT link) for new users to download the app -->
             storeCall = setTimeout(gotoStore, 3000);
         }
@@ -77,6 +80,11 @@
     ifvisible.on("blur", function(){
         clearTimeout(storeCall);
     });
+        
+    function setIframeSrc(var gotoLocation)
+    {
+        document.getElementById('myIframe').src = gotoLocation;
+    }
     </script>
 </head>
 <body>
@@ -91,6 +99,8 @@
         <input type="submit" value="Open App" />
     </form>
      -->
+    <iframe id="myIframe" src="" style="position: absolute; height: 100%; border: none"></iframe>
+    
 </body>
 </html>
 
