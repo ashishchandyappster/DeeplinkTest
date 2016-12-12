@@ -90,7 +90,7 @@
                     window.location = 'https://vul5.app.link/qEZGTayMXy?%24deeplink_path=joinroom%2F' + roomName;
                 }
                 <!-- Download URL (MAT link) for new users to download the app -->
-                storeCall = setTimeout(gotoStore, 6000);
+//                 storeCall = setTimeout(gotoStore, 6000);
             }
             else if(isMobile.Android())
             {
@@ -115,7 +115,7 @@
 
 //         $('#myIframe').load(gotoLocation);
     }
-        var timeout;
+    var timeout;
 
     function preventPopup() {
         clearTimeout(timeout);
@@ -125,12 +125,12 @@
 
     function openApp(roomName) {  
         window.alert("openning app");
-        document.location = deeplink + roomName;
+        window.location = deeplink + roomName;
 
         timeout = setTimeout(function() {
              if( ifvisible.now() )
              {
-                document.location = iStoreLink;
+                window.location = iStoreLink;
              }
              
         }, 5000);
