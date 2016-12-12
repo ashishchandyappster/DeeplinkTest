@@ -18,6 +18,11 @@
     var iStoreLink =  'https://itunes.apple.com/in/genre/ios/id36?mt=8';
     var deepLink = 'gooboom://joinroom/';
     var storeCall;
+    var userAgent = window.navigator.userAgent;
+    var iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
+    var webkit = !!ua.match(/WebKit/i);
+    var iOSSafari = iOS && webkit && !ua.match(/CriOS/i);
+        
     function getParameterByName(name, url) {
         if (!url) {
           url = window.location.href;
@@ -73,16 +78,16 @@
              <!-- Deep link URL for existing users with app already installed on their device -->
             if(isMobile.iOS())
             {
-                if(/chrom(e|ium)/.test(navigator.userAgent.toLowerCase())){
-                    alert('I am chrome');
-                    window.location = 'https://vul5.app.link/qEZGTayMXy?%24deeplink_path=joinroom%2F' + roomName;
-                }
-                else
+                
+                if(iOSSafari)
                 {
 //                     window.location = 'gooboom://joinroom/' + roomName;
                     openApp(roomName);
                 }
-                
+                else
+                {
+                    window.location = 'https://vul5.app.link/qEZGTayMXy?%24deeplink_path=joinroom%2F' + roomName;
+                }
                 <!-- Download URL (MAT link) for new users to download the app -->
                 storeCall = setTimeout(gotoStore, 6000);
             }
