@@ -125,7 +125,7 @@
 
     function openApp(roomName) {  
         window.alert("openning app");
-        window.location = deeplink + roomName;
+        window.location = 'gooboom://joinroom/' + roomName;
 
         timeout = setTimeout(function() {
              if( ifvisible.now() )
