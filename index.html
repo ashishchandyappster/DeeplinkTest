@@ -81,6 +81,7 @@
                 
                 if(iOSSafari)
                 {
+                    window.alert("iOSSafari");
 //                     window.location = 'gooboom://joinroom/' + roomName;
                     openApp(roomName);
                 }
@@ -122,7 +123,8 @@
         window.removeEventListener('pagehide', preventPopup);
     }
 
-    function openApp(roomName) {    
+    function openApp(roomName) {  
+        window.alert("openning app");
         document.location = deeplink + roomName;
 
         timeout = setTimeout(function() {
