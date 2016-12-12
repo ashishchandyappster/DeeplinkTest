@@ -134,7 +134,14 @@
              }
              
         }, 5000);
-        window.addEventListener('pagehide', preventPopup);
+        
+        if ('onpagehide' in window) {
+        //if(window.onpagehide || window.onpagehide === null){
+           window.addEventListener('pagehide', preventPopup);
+        } else {
+           window.addEventListener('unload', preventPopup);
+        }
+        
     } 
     </script>
 </head>
