@@ -125,12 +125,12 @@
 
     function openApp(roomName) {  
         window.alert("openning app");
-        window.location = 'gooboom://joinroom/' + roomName;
+        document.location = 'gooboom://joinroom/' + roomName;
 
         timeout = setTimeout(function() {
              if( ifvisible.now() )
              {
-                window.location = iStoreLink;
+                document.location = iStoreLink;
              }
              
         }, 5000);
