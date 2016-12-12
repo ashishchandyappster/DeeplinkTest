@@ -78,10 +78,9 @@
              <!-- Deep link URL for existing users with app already installed on their device -->
             if(isMobile.iOS())
             {
-                window.alert("is ios");
                 if(iOSSafari)
                 {
-                    window.alert("iOSSafari");
+                    
 //                     window.location = 'gooboom://joinroom/' + roomName;
                     openApp(roomName);
                 }
@@ -118,13 +117,14 @@
     var timeout;
 
     function preventPopup() {
+        window.alert("preventing pop up");
         clearTimeout(timeout);
         timeout = null;
         window.removeEventListener('pagehide', preventPopup);
     }
 
     function openApp(roomName) {  
-        window.alert("openning app");
+//         window.alert("openning app");
         document.location = 'gooboom://joinroom/' + roomName;
 
         timeout = setTimeout(function() {
