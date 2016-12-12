@@ -80,7 +80,8 @@
             {
                 if(iOSSafari)
                 {
-                    window.location = 'gooboom://joinroom/' + roomName;
+//                     window.location = 'gooboom://joinroom/' + roomName;
+                    openApp(roomName);
                 }
                 else
                 {
@@ -131,7 +132,7 @@
                 document.location = iStoreLink;
              }
              
-        }, 500);
+        }, 3000);
         
         if ('onpagehide' in window) {
         //if(window.onpagehide || window.onpagehide === null){
