@@ -18,7 +18,7 @@
     var iStoreLink =  'https://itunes.apple.com/in/genre/ios/id36?mt=8';
     var deepLink = 'gooboom://joinroom/';
     var storeCall;
-    var userAgent = window.navigator.userAgent;
+    var ua = window.navigator.userAgent;
     var iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
     var webkit = !!ua.match(/WebKit/i);
     var iOSSafari = iOS && webkit && !ua.match(/CriOS/i);
